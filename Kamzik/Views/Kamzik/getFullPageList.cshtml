@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Kamzik.T_KAMZIK_PAGE>
+
+@{
+    ViewBag.Title = "getFullPageList";
+}
+
+<h2>getFullPageList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SystemName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PageState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PageType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FK_SOURCE_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FK_PACKAGES_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HierarchyLevel)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SystemName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PageState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PageType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FK_SOURCE_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FK_PACKAGES_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HierarchyLevel)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Data.Entity;
+using Kamzik.Models;
 
 namespace Kamzik
 {
@@ -12,10 +14,14 @@ namespace Kamzik
     {
         protected void Application_Start()
         {
+            Database.SetInitializer<Kamzik.Models.ApplicationDbContext>(null);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            BundleTable.EnableOptimizations = true;
         }
     }
 }
+
+

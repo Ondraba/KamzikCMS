@@ -211,6 +211,7 @@
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KamzikController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>Entity_primary.tt</DependentUpon>
@@ -234,10 +235,25 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CoreModules\Storages.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PageSystem\PageProcessSystem.cs" />
+    <Compile Include="Models\PageSystem\PageSystemDependencyContainer.cs" />
+    <Compile Include="PageTest.cs">
+      <DependentUpon>Entity_primary.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="T_KAMZIK_PAGE.cs">
+      <DependentUpon>Entity_primary.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_KAMZIK_PAGE_REL.cs">
+      <DependentUpon>Entity_primary.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_KAMZIK_SOURCE.cs">
+      <DependentUpon>Entity_primary.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -314,6 +330,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\GetPages.cshtml" />
+    <Content Include="Views\Kamzik\getFullPageList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
