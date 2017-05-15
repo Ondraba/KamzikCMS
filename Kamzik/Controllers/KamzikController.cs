@@ -27,5 +27,11 @@ namespace Kamzik.Controllers
         {
             return View(PSD.getPageProcessSystem().getFullPageList());
         }
+
+        public ActionResult Details(int id, string type)
+        {
+            PSD.getPageProcessSystem().pageRenderStart(id,type);  
+            return View(_db.T_KAMZIK_PAGE.Find(id));
+        }
     }
 }

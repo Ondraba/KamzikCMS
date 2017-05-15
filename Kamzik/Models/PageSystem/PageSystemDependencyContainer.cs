@@ -30,7 +30,7 @@ namespace Kamzik.Models.PageSystem
 
         public PageProcessSystem getPageProcessSystem()
         {
-            PageProcessSystem pageProcessSystem = new PageProcessSystem(this.getDefaultConnection());
+            PageProcessSystem pageProcessSystem = new PageProcessSystem(getDefaultConnection());
             return pageProcessSystem;
         }
     }

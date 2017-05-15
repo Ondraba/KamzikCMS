@@ -27,5 +27,43 @@ namespace Kamzik.Models.PageSystem
         {
             return _db.T_KAMZIK_PAGE.ToList();
         }
+
+        public bool pageHealthCheck(int id)
+        {
+            bool okStatus = false;
+            var pageToFind = _db.T_KAMZIK_PAGE.Find(id);
+            if (pageToFind != null)
+            {
+                okStatus = true;
+            }
+            return okStatus;
+        }
+
+        public void pageRenderStart(int id, string type)
+        {
+            if (pageHealthCheck(id))
+            {
+                switch (type)
+                {
+                    case "ROOT":
+                        { };
+                        break;
+                    case "LIST":
+                        { };
+                        break;
+                    case "PAGE":
+                        { };
+                        break;
+                    default:
+                        { };
+                        break;
+                    
+                }
+            }
+        }
+
+        
+
+
     }
 }

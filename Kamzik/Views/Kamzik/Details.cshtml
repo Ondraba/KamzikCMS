@@ -1,0 +1,66 @@
+﻿@model Kamzik.T_KAMZIK_PAGE
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>T_KAMZIK_PAGE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SystemName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SystemName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PageState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PageState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PageType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PageType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FK_SOURCE_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FK_SOURCE_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FK_PACKAGES_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FK_PACKAGES_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HierarchyLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HierarchyLevel)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

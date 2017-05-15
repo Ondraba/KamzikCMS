@@ -332,6 +332,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\GetPages.cshtml" />
     <Content Include="Views\Kamzik\getFullPageList.cshtml" />
+    <Content Include="Views\Kamzik\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
