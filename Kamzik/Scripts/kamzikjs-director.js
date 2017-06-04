@@ -1,0 +1,13 @@
+﻿class Director {
+    constructor() {
+        
+    }
+
+    createNewPage() {
+
+    }
+
+}
+
+
+

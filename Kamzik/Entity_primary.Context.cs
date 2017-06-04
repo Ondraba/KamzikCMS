@@ -34,5 +34,6 @@ namespace Kamzik
         public virtual DbSet<T_KAMZIK_PAGE> T_KAMZIK_PAGE { get; set; }
         public virtual DbSet<T_KAMZIK_PAGE_REL> T_KAMZIK_PAGE_REL { get; set; }
         public virtual DbSet<T_KAMZIK_SOURCE> T_KAMZIK_SOURCE { get; set; }
+        public virtual DbSet<Page> Page { get; set; }
     }
 }

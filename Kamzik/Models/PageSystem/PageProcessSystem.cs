@@ -56,14 +56,10 @@ namespace Kamzik.Models.PageSystem
                         break;
                     default:
                         { };
-                        break;
-                    
+                        break;                 
                 }
             }
         }
-
-        
-
 
     }
 }

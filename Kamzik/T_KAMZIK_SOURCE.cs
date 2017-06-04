@@ -18,5 +18,8 @@ namespace Kamzik
         public string Title { get; set; }
         public string Subtitle { get; set; }
         public string Content { get; set; }
+        public int PageId { get; set; }
+    
+        public virtual T_KAMZIK_PAGE T_KAMZIK_PAGE { get; set; }
     }
 }

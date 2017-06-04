@@ -21,5 +21,8 @@ namespace Kamzik
         public Nullable<int> FK_SOURCE_ID { get; set; }
         public Nullable<int> FK_PACKAGES_ID { get; set; }
         public string HierarchyLevel { get; set; }
+        public Nullable<int> SortOrder { get; set; }
+    
+        public virtual T_KAMZIK_SOURCE T_KAMZIK_SOURCE { get; set; }
     }
 }

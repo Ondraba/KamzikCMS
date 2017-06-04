@@ -1,0 +1,5 @@
+﻿class Init {
+    constructor() {   
+    }
+   
+}

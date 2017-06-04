@@ -80,3 +80,7 @@ c:\users\datart\documents\visual studio 2015\Projects\Kamzik\Kamzik\bin\Microsof
 c:\users\datart\documents\visual studio 2015\Projects\Kamzik\Kamzik\obj\Debug\Kamzik.csprojResolveAssemblyReference.cache
 c:\users\datart\documents\visual studio 2015\Projects\Kamzik\Kamzik\obj\Debug\Kamzik.dll
 c:\users\datart\documents\visual studio 2015\Projects\Kamzik\Kamzik\obj\Debug\Kamzik.pdb
+C:\Users\datart\documents\visual studio 2015\Projects\Kamzik\Kamzik\bin\Elasticsearch.Net.dll
+C:\Users\datart\documents\visual studio 2015\Projects\Kamzik\Kamzik\bin\Nest.dll
+C:\Users\datart\documents\visual studio 2015\Projects\Kamzik\Kamzik\bin\Elasticsearch.Net.xml
+C:\Users\datart\documents\visual studio 2015\Projects\Kamzik\Kamzik\bin\Nest.xml

@@ -61,6 +61,17 @@
     <Property Name="AccessFailedCount" Type="int" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
   </EntityType>
+  <EntityType Name="Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SystemName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PageState" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PageType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FK_SOURCE_ID" Type="int" />
+    <Property Name="FK_PACKAGES_ID" Type="int" />
+  </EntityType>
   <EntityType Name="PageTest">
     <Key>
       <PropertyRef Name="Id" />
@@ -80,6 +91,7 @@
     <Property Name="FK_SOURCE_ID" Type="int" />
     <Property Name="FK_PACKAGES_ID" Type="int" />
     <Property Name="HierarchyLevel" Type="nvarchar" MaxLength="50" />
+    <Property Name="SortOrder" Type="int" />
   </EntityType>
   <EntityType Name="T_KAMZIK_PAGE_REL">
     <Key>
@@ -97,6 +109,7 @@
     <Property Name="Title" Type="nvarchar(max)" />
     <Property Name="Subtitle" Type="nvarchar(max)" />
     <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="PageId" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -161,6 +174,7 @@
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Page" EntityType="Self.Page" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PageTest" EntityType="Self.PageTest" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_KAMZIK_PAGE" EntityType="Self.T_KAMZIK_PAGE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_KAMZIK_PAGE_REL" EntityType="Self.T_KAMZIK_PAGE_REL" Schema="dbo" store:Type="Tables" />

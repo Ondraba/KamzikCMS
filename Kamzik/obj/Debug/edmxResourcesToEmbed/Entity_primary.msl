@@ -76,6 +76,7 @@
     <EntitySetMapping Name="T_KAMZIK_PAGE">
       <EntityTypeMapping TypeName="Model.T_KAMZIK_PAGE">
         <MappingFragment StoreEntitySet="T_KAMZIK_PAGE">
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
           <ScalarProperty Name="HierarchyLevel" ColumnName="HierarchyLevel" />
           <ScalarProperty Name="FK_PACKAGES_ID" ColumnName="FK_PACKAGES_ID" />
           <ScalarProperty Name="FK_SOURCE_ID" ColumnName="FK_SOURCE_ID" />
@@ -98,9 +99,22 @@
     <EntitySetMapping Name="T_KAMZIK_SOURCE">
       <EntityTypeMapping TypeName="Model.T_KAMZIK_SOURCE">
         <MappingFragment StoreEntitySet="T_KAMZIK_SOURCE">
+          <ScalarProperty Name="PageId" ColumnName="PageId" />
           <ScalarProperty Name="Content" ColumnName="Content" />
           <ScalarProperty Name="Subtitle" ColumnName="Subtitle" />
           <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Page">
+      <EntityTypeMapping TypeName="Model.Page">
+        <MappingFragment StoreEntitySet="Page">
+          <ScalarProperty Name="FK_PACKAGES_ID" ColumnName="FK_PACKAGES_ID" />
+          <ScalarProperty Name="FK_SOURCE_ID" ColumnName="FK_SOURCE_ID" />
+          <ScalarProperty Name="PageType" ColumnName="PageType" />
+          <ScalarProperty Name="PageState" ColumnName="PageState" />
+          <ScalarProperty Name="SystemName" ColumnName="SystemName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

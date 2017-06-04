@@ -66,6 +66,17 @@
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
+        <EntityType Name="Page">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SystemName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PageState" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PageType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FK_SOURCE_ID" Type="int" />
+          <Property Name="FK_PACKAGES_ID" Type="int" />
+        </EntityType>
         <EntityType Name="PageTest">
           <Key>
             <PropertyRef Name="Id" />
@@ -85,6 +96,7 @@
           <Property Name="FK_SOURCE_ID" Type="int" />
           <Property Name="FK_PACKAGES_ID" Type="int" />
           <Property Name="HierarchyLevel" Type="nvarchar" MaxLength="50" />
+          <Property Name="SortOrder" Type="int" />
         </EntityType>
         <EntityType Name="T_KAMZIK_PAGE_REL">
           <Key>
@@ -102,6 +114,7 @@
           <Property Name="Title" Type="nvarchar(max)" />
           <Property Name="Subtitle" Type="nvarchar(max)" />
           <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="PageId" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -166,6 +179,7 @@
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Page" EntityType="Self.Page" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PageTest" EntityType="Self.PageTest" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_KAMZIK_PAGE" EntityType="Self.T_KAMZIK_PAGE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_KAMZIK_PAGE_REL" EntityType="Self.T_KAMZIK_PAGE_REL" Schema="dbo" store:Type="Tables" />
@@ -304,6 +318,11 @@
           <EntitySet Name="T_KAMZIK_PAGE" EntityType="Model.T_KAMZIK_PAGE" />
           <EntitySet Name="T_KAMZIK_PAGE_REL" EntityType="Model.T_KAMZIK_PAGE_REL" />
           <EntitySet Name="T_KAMZIK_SOURCE" EntityType="Model.T_KAMZIK_SOURCE" />
+          <AssociationSet Name="T_KAMZIK_PAGET_KAMZIK_SOURCE" Association="Model.T_KAMZIK_PAGET_KAMZIK_SOURCE">
+            <End Role="T_KAMZIK_PAGE" EntitySet="T_KAMZIK_PAGE" />
+            <End Role="T_KAMZIK_SOURCE" EntitySet="T_KAMZIK_SOURCE" />
+          </AssociationSet>
+          <EntitySet Name="Page" EntityType="Model.Page" />
         </EntityContainer>
         <EntityType Name="PageTest">
           <Key>
@@ -324,6 +343,8 @@
           <Property Name="FK_SOURCE_ID" Type="Int32" />
           <Property Name="FK_PACKAGES_ID" Type="Int32" />
           <Property Name="HierarchyLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="T_KAMZIK_SOURCE" Relationship="Model.T_KAMZIK_PAGET_KAMZIK_SOURCE" FromRole="T_KAMZIK_PAGE" ToRole="T_KAMZIK_SOURCE" />
+          <Property Name="SortOrder" Type="Int32" />
         </EntityType>
         <EntityType Name="T_KAMZIK_PAGE_REL">
           <Key>
@@ -341,6 +362,31 @@
           <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Subtitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PageId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="T_KAMZIK_PAGE" Relationship="Model.T_KAMZIK_PAGET_KAMZIK_SOURCE" FromRole="T_KAMZIK_SOURCE" ToRole="T_KAMZIK_PAGE" />
+        </EntityType>
+        <Association Name="T_KAMZIK_PAGET_KAMZIK_SOURCE">
+          <End Type="Model.T_KAMZIK_PAGE" Role="T_KAMZIK_PAGE" Multiplicity="1" />
+          <End Type="Model.T_KAMZIK_SOURCE" Role="T_KAMZIK_SOURCE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="T_KAMZIK_PAGE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_KAMZIK_SOURCE">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Page">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SystemName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PageState" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PageType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FK_SOURCE_ID" Type="Int32" />
+          <Property Name="FK_PACKAGES_ID" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -423,6 +469,7 @@
           <EntitySetMapping Name="T_KAMZIK_PAGE">
             <EntityTypeMapping TypeName="Model.T_KAMZIK_PAGE">
               <MappingFragment StoreEntitySet="T_KAMZIK_PAGE">
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
                 <ScalarProperty Name="HierarchyLevel" ColumnName="HierarchyLevel" />
                 <ScalarProperty Name="FK_PACKAGES_ID" ColumnName="FK_PACKAGES_ID" />
                 <ScalarProperty Name="FK_SOURCE_ID" ColumnName="FK_SOURCE_ID" />
@@ -445,9 +492,22 @@
           <EntitySetMapping Name="T_KAMZIK_SOURCE">
             <EntityTypeMapping TypeName="Model.T_KAMZIK_SOURCE">
               <MappingFragment StoreEntitySet="T_KAMZIK_SOURCE">
+                <ScalarProperty Name="PageId" ColumnName="PageId" />
                 <ScalarProperty Name="Content" ColumnName="Content" />
                 <ScalarProperty Name="Subtitle" ColumnName="Subtitle" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Page">
+            <EntityTypeMapping TypeName="Model.Page">
+              <MappingFragment StoreEntitySet="Page">
+                <ScalarProperty Name="FK_PACKAGES_ID" ColumnName="FK_PACKAGES_ID" />
+                <ScalarProperty Name="FK_SOURCE_ID" ColumnName="FK_SOURCE_ID" />
+                <ScalarProperty Name="PageType" ColumnName="PageType" />
+                <ScalarProperty Name="PageState" ColumnName="PageState" />
+                <ScalarProperty Name="SystemName" ColumnName="SystemName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
