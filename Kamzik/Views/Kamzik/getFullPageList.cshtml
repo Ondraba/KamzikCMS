@@ -56,6 +56,7 @@
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Open", "renderPage", new { id=item.Id, pagetype=item.PageType}) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Create subpage", "CallCreatePageForm", new { id = item.Id })
         </td>
     </tr>
 }

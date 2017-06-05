@@ -11,6 +11,7 @@ using System.IO;
 using System.Net;
 using System.Data;
 
+
 namespace Kamzik.Controllers
 {
     public class KamzikController : Controller
@@ -50,6 +51,7 @@ namespace Kamzik.Controllers
             return View();
         }
 
+        [HttpPost]
         public void CreateAjaxPage(int? motherId, string systemName, string pageType, int? FK_PACKAGES_ID)
         {
             _classManager.get_R_T_KAMZIK_PAGE().createNewPage(motherId, systemName, pageType, FK_PACKAGES_ID);
@@ -62,5 +64,10 @@ namespace Kamzik.Controllers
         //{
         //    return View();
         //}
+        [HttpPost]
+        public ActionResult SaveDetailedInfo(string test)
+        {
+            return View();
+        }
     }
 }

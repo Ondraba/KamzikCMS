@@ -1,5 +1,6 @@
 ﻿class Init {
-    constructor() {   
+    constructor() {
+        this.director = new Director();
     }
    
 }
